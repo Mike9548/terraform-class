@@ -12,3 +12,11 @@ provider "azurerm" {
   skip_provider_registration = true # This is only required when the User, Service Principal, or Identity running Terraform lacks the permissions to register Azure Resource Providers.
   features {}
 }
+terraform {
+  backend "azurerm" {
+    resource_group_name  = "ogunsapp"
+    storage_account_name = "ogunsstg"
+    container_name       = "ogunscon"
+    key                  = "test.terraform.tfstate"
+  }
+}
